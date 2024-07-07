@@ -54,6 +54,10 @@
                 <input type="color" id="gradientColor2" value="#0000ff">
             </div>
             <div class="control-group">
+                <button id="addLayer">Add Layer</button>
+                <div id="layerControls"></div>
+            </div>
+            <div class="control-group">
                 <label for="animationType">Animation Type:</label>
                 <select id="animationType">
                     <option value="stars">Stars</option>
@@ -94,6 +98,13 @@
                 <span id="particleSizeValue">3px</span>
             </div>
             <div class="control-group">
+                <button id="openShapeEditorBtn">Custom Shape Editor</button>
+            </div>
+            <div id="shapeEditor" style="display:none;">
+                <canvas id="shapeCanvas" width="200" height="200"></canvas>
+                <button id="saveCustomShape">Save Shape</button>
+            </div>
+            <div class="control-group">
                 <label for="customText">Custom Text:</label>
                 <input type="text" id="customText" placeholder="Enter your text here">
             </div>
@@ -130,6 +141,33 @@
                 <label for="textShadow">Text Shadow:</label>
                 <input type="checkbox" id="textShadow">
             </div>
+            <div class="control-group">
+                <h3>Audio-Reactive Background</h3>
+                <input type="file" id="audioFile" accept="audio/*">
+                <button id="useMicrophone">Use Microphone</button>
+                <button id="stopAudio">Stop Audio</button>
+                <select id="audioReactiveMode">
+                    <option value="particles">Particle Size</option>
+                    <option value="color">Color Shift</option>
+                    <option value="wave">Wave Form</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <button id="customizeControlsBtn">Customize Controls</button>
+            </div>
+            <div id="controlCustomizer" style="display:none;">
+                <!-- This will be populated dynamically with JavaScript -->
+            </div>
+            <div class="control-group">
+                <label for="saveSlotSelect">Save Slot:</label>
+                <select id="saveSlotSelect">
+                    <option value="1">Slot 1</option>
+                    <option value="2">Slot 2</option>
+                    <option value="3">Slot 3</option>
+                </select>
+                <button id="saveToSlotBtn">Save to Slot</button>
+                <button id="loadFromSlotBtn">Load from Slot</button>
+            </div>
             <div class="buttons">
                 <button id="randomizeBtn">Randomize</button>
                 <button id="pauseBtn">Pause</button>
@@ -139,12 +177,17 @@
                 <button id="downloadBtn">Download</button>
                 <button id="fullscreenBtn">Fullscreen</button>
             </div>
+             
         </div>
         <div id="preview" class="preview"></div>
     </div>
     <button id="fab" class="fab" title="Randomize Background">
         <span class="material-icons">shuffle</span>
     </button>
+    <div id="performanceMetrics" style="position: absolute; top: 10px; left: 50%; background: rgba(0,0,0,0.5); padding: 5px; border-radius: 5px;">
+        <span id="fpsCounter">FPS: --</span>
+        <span id="particleCounter">Particles: --</span>
+    </div> 
     <script src="html2canvas.min.js"></script>
     <script src="main.js"></script>
 </body>
