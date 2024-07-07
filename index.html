@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Background Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="controls">
+            <h1>Background Generator</h1>
+            <div class="control-group">
+                <button id="themeToggle" class="theme-toggle">
+                    <span class="material-icons">dark_mode</span>
+                </button>
+                <button id="undoBtn" class="icon-btn" title="Undo (Ctrl+Z)">
+                    <span class="material-icons">undo</span>
+                </button>
+                <button id="redoBtn" class="icon-btn" title="Redo (Ctrl+Y)">
+                    <span class="material-icons">redo</span>
+                </button>
+            </div>
+            <div class="control-group">
+                <label for="presetSelect">Presets:</label>
+                <select id="presetSelect">
+                    <option value="">Custom</option>
+                    <option value="nightSky">Night Sky</option>
+                    <option value="ocean">Ocean</option>
+                    <option value="fire">Fire</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label for="bgColor">Background Color:</label>
+                <input type="color" id="bgColor" value="#000000">
+            </div>
+            <div class="control-group">
+                <label for="bgImage">Background Image:</label>
+                <input type="file" id="bgImage" accept="image/*">
+            </div>
+            <div class="control-group">
+                <button id="generateColorScheme">Generate Color Scheme</button>
+            </div>
+            <div class="control-group">
+                <label for="gradient">Gradient Background:</label>
+                <input type="checkbox" id="gradient">
+            </div>
+            <div id="gradientOptions" class="control-group" style="display: none;">
+                <label for="gradientColor1">Gradient Color 1:</label>
+                <input type="color" id="gradientColor1" value="#ff0000">
+                <label for="gradientColor2">Gradient Color 2:</label>
+                <input type="color" id="gradientColor2" value="#0000ff">
+            </div>
+            <div class="control-group">
+                <label for="animationType">Animation Type:</label>
+                <select id="animationType">
+                    <option value="stars">Stars</option>
+                    <option value="waves">Waves</option>
+                    <option value="particles">Particles</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label for="interactionMode">Particle Interaction:</label>
+                <select id="interactionMode">
+                    <option value="none">None</option>
+                    <option value="attract">Attract</option>
+                    <option value="repel">Repel</option>
+                    <option value="swirl">Swirl</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label for="animationSpeed">Animation Speed:</label>
+                <input type="range" id="animationSpeed" min="1" max="10" value="5">
+            </div>
+            <div class="control-group">
+                <label for="elementCount">Element Count:</label>
+                <input type="range" id="elementCount" min="10" max="200" value="50">
+            </div>
+            <div class="control-group">
+                <label for="shape">Particle Shape:</label>
+                <select id="shape">
+                    <option value="circle">Circle</option>
+                    <option value="square">Square</option>
+                    <option value="triangle">Triangle</option>
+                    <option value="star">Star</option>
+                    <option value="hexagon">Hexagon</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label for="particleSize">Particle Size:</label>
+                <input type="range" id="particleSize" min="1" max="10" value="3">
+                <span id="particleSizeValue">3px</span>
+            </div>
+            <div class="control-group">
+                <label for="customText">Custom Text:</label>
+                <input type="text" id="customText" placeholder="Enter your text here">
+            </div>
+            <div class="control-group">
+                <label for="textColor">Text Color:</label>
+                <input type="color" id="textColor" value="#ffffff">
+            </div>
+            <div class="control-group">
+                <label for="fontSize">Font Size:</label>
+                <input type="range" id="fontSize" min="12" max="72" value="24">
+                <span id="fontSizeValue">24px</span>
+            </div>
+            <div class="control-group">
+                <label for="fontFamily">Font Family:</label>
+                <select id="fontFamily">
+                    <option value="Arial">Arial</option>
+                    <option value="Verdana">Verdana</option>
+                    <option value="Helvetica">Helvetica</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Courier New">Courier New</option>
+                </select>
+            </div>
+            <div class="control-group">
+                <label for="textPositionX">Text Position X:</label>
+                <input type="range" id="textPositionX" min="0" max="100" value="50">
+                <span id="textPositionXValue">50%</span>
+            </div>
+            <div class="control-group">
+                <label for="textPositionY">Text Position Y:</label>
+                <input type="range" id="textPositionY" min="0" max="100" value="50">
+                <span id="textPositionYValue">50%</span>
+            </div>
+            <div class="control-group">
+                <label for="textShadow">Text Shadow:</label>
+                <input type="checkbox" id="textShadow">
+            </div>
+            <div class="buttons">
+                <button id="randomizeBtn">Randomize</button>
+                <button id="pauseBtn">Pause</button>
+                <button id="clearBtn">Clear</button>
+                <button id="saveBtn">Save</button>
+                <button id="loadBtn">Load</button>
+                <button id="downloadBtn">Download</button>
+                <button id="fullscreenBtn">Fullscreen</button>
+            </div>
+        </div>
+        <div id="preview" class="preview"></div>
+    </div>
+    <button id="fab" class="fab" title="Randomize Background">
+        <span class="material-icons">shuffle</span>
+    </button>
+    <script src="html2canvas.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
