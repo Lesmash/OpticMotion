@@ -270,3 +270,81 @@ button {
 .hexagon {
     clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
 }
+
+
+.layer-control {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+.layer-control h4 {
+    margin-top: 0;
+}
+
+.layer-control select,
+.layer-control input[type="range"] {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.remove-layer {
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.control-group button {
+    margin: 5px;
+    padding: 5px 10px;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+#audioReactiveMode {
+    width: 100%;
+    margin-top: 10px;
+}
+
+#performanceMetrics {
+    font-size: 12px;
+    color: white;
+}
+
+#shapeEditor {
+    background-color: var(--surface-color);
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+#shapeCanvas {
+    background-color: white;
+    margin-bottom: 10px;
+}
+
+.color-picker {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+}
+
+#controlCustomizer {
+    background-color: var(--surface-color);
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+#controlCustomizer label {
+    display: block;
+    margin-bottom: 5px;
+}
